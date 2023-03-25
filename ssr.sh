@@ -20,7 +20,7 @@ config_folder="/etc/shadowsocksr"
 config_user_file="${config_folder}/user-config.json"
 ssr_log_file="${ssr_ss_file}/ssserver.log"
 Libsodiumr_file="/usr/local/lib/libsodium.so"
-Libsodiumr_ver_backup="1.0.13"
+Libsodiumr_ver_backup="1.0.18"
 Server_Speeder_file="/serverspeeder/bin/serverSpeeder.sh"
 LotServer_file="/appex/bin/serverSpeeder.sh"
 BBR_file="${file}/bbr.sh"
@@ -738,8 +738,9 @@ Uninstall_SSR(){
 }
 Check_Libsodium_ver(){
 	echo -e "${Info} 开始获取 libsodium 最新版本..."
-	Libsodiumr_ver=$(wget -qO- "https://github.com/jedisct1/libsodium/tags"|grep "/jedisct1/libsodium/releases/tag/"|head -1|sed -r 's/.*tag\/(.+)\">.*/\1/')
-	[[ -z ${Libsodiumr_ver} ]] && Libsodiumr_ver=${Libsodiumr_ver_backup}
+	Libsodiumr_ver=${Libsodiumr_ver_backup}
+	# Libsodiumr_ver=$(wget -qO- "https://github.com/jedisct1/libsodium/tags"|grep "/jedisct1/libsodium/releases/tag/"|head -1|sed -r 's/.*tag\/(.+)\">.*/\1/')
+	# [[ -z ${Libsodiumr_ver} ]] && Libsodiumr_ver=${Libsodiumr_ver_backup}
 	echo -e "${Info} libsodium 最新版本为 ${Green_font_prefix}${Libsodiumr_ver}${Font_color_suffix} !"
 }
 Install_Libsodium(){
